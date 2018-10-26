@@ -1,0 +1,7 @@
+---
+applications :
+- name : sse
+  buildpack : java_buildpack
+  path : target\sseapp-0.0.1-SNAPSHOT.jar
+  services :
+  - mysql

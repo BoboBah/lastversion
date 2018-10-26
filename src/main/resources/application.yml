@@ -1,0 +1,45 @@
+spring:
+  jpa:
+    database: MYSQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect:  org.hibernate.dialect.MySQL5InnoDBDialect      
+  datasource:
+    url: jdbc:mysql://localhost:3306/sse
+    username: alien
+    password: alien
+    driver-class-name: com.mysql.jdbc.Driver
+    tomcat:
+      test-while-idle: true
+      test-on-borrow: true
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 30000
+      validation-query: SELECT 1
+      max-active: 15
+      max-idle: 10
+      max-wait: 8000
+  mail:
+    host: smtp.gmail.com
+    username: bobobah527@gmail.com
+    password: rootbobo 
+    port: 587
+    tls: true
+    properties:
+      mail: 
+        smtp: 
+          auth: true
+          starttls: 
+            enable: true
+  flyway:
+    baseline-on-migrate: true
+server:
+  port: 8888
+  compression:
+    enabled: true
+    mime-types: text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json
+    min-response-size: 1024
+  http2:
+    enabled: true

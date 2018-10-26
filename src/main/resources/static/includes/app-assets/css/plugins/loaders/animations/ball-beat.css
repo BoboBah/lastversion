@@ -1,0 +1,1 @@
+@keyframes ball-beat{50%{opacity:.2;transform:scale(0.75)}100%{opacity:1;transform:scale(1)}}.ball-beat > div{background-color:#55595c;width:15px;height:15px;border-radius:100%;margin:2px;animation-fill-mode:both;display:inline-block;animation:ball-beat .7s 0 infinite linear}.ball-beat > div:nth-child(2n-1){animation-delay:-.35s!important}

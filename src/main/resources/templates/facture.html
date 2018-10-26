@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui"/>
+  <meta name="description" content=""/>
+  <meta name="keywords" content=""/>
+  <meta name="author" content="Mbaye SENGHOR/Mouhamadou Bobo Bah"/>
+  <title></title>
+  <script type="text/javascript" src="../static/facture/jquery-3.3.1.slim.min.js"
+
+          th:src="@{/facture/jquery-3.3.1.slim.min.js}">
+
+  </script>
+  <script type="text/javascript" src="../static/facture/jquery-ean13.min.js"
+
+          th:src="@{/facture/jquery-ean13.min.js}">
+
+  </script>
+  <script type="text/javascript" src="../static/facture/jquery-ean13.js"
+          th:src="@{/facture/jquery-ean13.min.js}"
+  ></script>
+  <link rel="stylesheet" href="../static/facture/facture.bootstrap.css"
+
+        th:href="@{/facture/facture.bootstrap.css}"
+
+  />
+  <link rel="stylesheet" href="../static/facture/font.css"
+
+        th:src="@{/facture/font.css}"
+  />
+</head>
+
+<body style="font-family: 'Abel', sans-serif;">
+  <div class="py-5">
+    <div class="container border py-5 border-info">
+      <div class="row py-2">
+        <div class="col-md-3">
+          <div class="row px-5">
+            <h5 th:text="${facture.traitement.assure.assurance.nomAssurance}"></h5>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <h3 class="text-center text-uppercase text-info">
+            <b>
+              <u>Fiche de Soins</u>
+            </b>
+          </h3>
+        </div>
+        <div class="col-md-3 px-2">
+          <row>
+            <h6>Date:
+              <span>
+                <u th:text="${facture.date}"></u>
+              </span>
+            </h6>
+          </row>
+        </div>
+      </div>
+      <hr class="my-1">
+      <div class="row">
+        <div class="col-md-12">
+          <h4 class="bg-info" contenteditable="true">Bénéficiaire des Soins</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="row mx-4">
+            <div class="col-md-12">
+              <h5 contenteditable="true">
+                <u>Personne recevant les soins </u>
+              </h5>
+            </div>
+          </div>
+          <div class="row mx-5">
+            <div class="col-md-6">
+              <label class="col-md-4">Réf Police:</label>
+              <input type="text" th:value="${facture.idFacture}" class="col-md-7"> </div>
+            <div class="col-md-6">
+              <label class="col-md-4">Prénom:</label>
+              <input type="text" th:value="${facture.traitement.beneficiaire.prenom}" class="col-md-7"> </div>
+          </div>
+          <div class="row mx-5">
+            <div class="col-md-6">
+              <label class="col-md-4">Date de Naissance:</label>
+              <input type="text" th:value="${facture.traitement.beneficiaire.dateNaissance}" class="col-md-7"> </div>
+            <div class="col-md-6">
+              <label class="col-md-4">Nom :</label>
+              <input type="text" th:value="${facture.traitement.beneficiaire.nom}" class="col-md-7"> </div>
+          </div>
+          <div class="row mx-5">
+            <div class="col-md-6">
+              <label class="col-md-4">Adresse:</label>
+              <input type="text" th:value="${facture.traitement.beneficiaire.adresse}" class="col-md-7"> </div>
+
+          </div>
+          <div class="row mx-4">
+            <div class="col-md-12">
+              <h5>
+                <u>Assuré(e) </u>
+              </h5>
+            </div>
+          </div>
+          <div class="row mx-5">
+            <div class="col-md-6">
+              <label class="col-md-4">Réf Police:</label>
+              <input type="text" th:value="${facture.traitement.assure.refPolice}" class="col-md-7"> </div>
+            <div class="col-md-6">
+              <label class="col-md-4">Prénom:</label>
+              <input type="text" th:value="${facture.traitement.assure.prenomAssure}" class="col-md-7"> </div>
+          </div>
+          <div class="row mx-5">
+            <div class="col-md-6">
+              <label class="col-md-4">Société:</label>
+              <input type="text" th:value="${facture.traitement.assure.societeAssure}" class="col-md-7"> </div>
+            <div class="col-md-6">
+              <label class="col-md-4">Nom:</label>
+              <input type="text" th:value="${facture.traitement.assure.nomAssure}" class="col-md-7"> </div>
+          </div>
+          <div class="row mx-4">
+            <div class="col-md-12">
+              <h5>
+                <u>Assurance/Mutuelle/IPM </u>
+              </h5>
+            </div>
+          </div>
+          <div class="row mx-5">
+            <div class="col-md-6">
+              <label class="col-md-4">code:</label>
+              <input type="text" th:value="${facture.traitement.assure.assurance.ninea}" class="col-md-7"> </div>
+            <div class="col-md-6">
+              <label class="col-md-4">Nom:</label>
+              <input type="text" th:value="${facture.traitement.assure.assurance.nomAssurance}" class="col-md-7"> </div>
+          </div>
+        </div>
+      </div>
+      <div class="row my-2">
+        <div class="col-md-12">
+          <h4 class="bg-info">Informations du Praticien</h4>
+        </div>
+      </div>
+      <div class="row mx-3">
+        <div class="col-md-5">
+          <label class="col-md-4">Matricule:</label>
+          <input type="text" th:value="${facture.traitement.medecin.idMedcin}" class="col-md-7"> </div>
+        <div class="col-md-7">
+          <label class="col-md-4">Prénom et Nom:</label>
+          <input type="text"  th:value="${facture.traitement.medecin.prenom}+ ' ' +${facture.traitement.medecin.nom}" class="col-md-7"> </div>
+      </div>
+      <div class="row my-2">
+        <div class="col-md-12">
+          <h4 class="bg-info" contenteditable="true">Conditions de Prise en Charge</h4>
+        </div>
+      </div>
+      <div class="row mx-5">
+        <div class="col-md-3">
+          <div class="row">
+            <label>Type de Prise en Charge</label>
+          </div>
+          <div class="row">
+            <input type="text" th:value="${facture.traitement.conditionPC.Nature}"> </div>
+        </div>
+        <div class="col-md-3">
+          <div class="row">
+            <label>Date: </label>
+          </div>
+          <div class="row">
+            <input type="text" th:value="${facture.traitement.conditionPC.date}"> </div>
+        </div>
+        <div class="col-md-3">
+          <label>Nature:</label>
+          <br>
+          <input type="text" value="Paludisme"> </div>
+        <div class="col-md-3">
+          <label>Durée Incapacité:</label>
+          <br>
+          <input type="text" th:value="${facture.traitement.conditionPC.duree}"> </div>
+      </div>
+      <hr class="my-1">
+      <div class="row mx-5">
+        <div class="col-md-12">
+          <h5>
+            <u>Cas d'un accident </u>
+          </h5>
+        </div>
+      </div>
+      <div class="row mx-5">
+        <div class="col-md-6">
+          <label class="col-md-4">tiers responsable:</label>
+          <input type="text" th:value="${facture.traitement.accident.tiersResponsable}" class="col-md-7"> </div>
+        <div class="col-md-6">
+          <label class="col-md-4">Témoins(s):</label>
+          <input type="text" th:value="${facture.traitement.accident.temoins}" class="col-md-7"> </div>
+      </div>
+      <div class="row mx-5">
+        <div class="col-md-6">
+          <label class="col-md-4">causes et circontances:</label>
+          <input type="text" th:value="${facture.traitement.accident.causes}" class="col-md-7"> </div>
+      </div>
+      <div class="row my-2">
+        <div class="col-md-12">
+          <h4 class="bg-info" contenteditable="true">Actes Effectués</h4>
+        </div>
+      </div>
+      <div class="row mx-5">
+        <div class="col-md-3">
+          <div class="row">
+            <label>Date:</label>
+          </div>
+          <div class="row">
+            <input type="text" th:value="${facture.traitement.date}"> </div>
+        </div>
+        <div class="col-md-4">
+          <div class="row">
+            <label>Désignation:</label>
+          </div>
+          <div class="row">
+            <input type="text" th:value="${facture.traitement.typeSoins.designation}" class="col-md-10"> </div>
+        </div>
+        <div class="col-md-4">
+          <div class="row">
+            <label>Montant Honoraire (F CFA):</label>
+          </div>
+          <div class="row">
+            <input type="text" th:value="${facture.traitement.typeSoins.montant}"> </div>
+        </div>
+        <div class="col-md-1">
+          <div class="row justify-content-center">
+            <label class="form-check-label" for="defaultCheck1">Ordonnance</label>
+          </div>
+          <div class="row justify-content-center">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" checked="true"> </div>
+        </div>
+      </div>
+      <div class="row my-2">
+        <div class="col-md-12">
+          <h4 class="bg-info">Signature</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-md-8 mx-5">
+              <h4>
+                <u>Numéro Facture</u>
+              </h4>
+            </div>
+          </div>
+          <div class="row px-5">
+            <canvas id="ean" width="400" height="200"></canvas>
+            <script type="text/javascript">
+              $("#ean").EAN13("9002236311036");
+            </script>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="row">
+            <div class="col-md-8 mx-5">
+              <h4>
+                <u>Cachet Médecin</u>
+              </h4>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 mx-5">
+              <h3 class="display-3" style="font-family: 'Kaushan Script', cursive;">Dr Mass FALL</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 mt-3">
+          <p class="text-center text-muted">© Copyright ALIEN Team - Sénégal Santé Emergent</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
